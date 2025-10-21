@@ -5,7 +5,7 @@
 - [Quickstart](#quickstart)
 - [Usage](#usage)
 - [Extras](#extras)
-
+- [Project Checklist](#project-checklist)
 ## Description
 This repository contains a Docker Compose setup for running WordPress with a MySQL database.  
 The project is designed to be easy to deploy, with persistent data storage and configurable environment variables.
@@ -30,16 +30,16 @@ The project is designed to be easy to deploy, with persistent data storage and c
 1. Clone this repository:
 
 ```bash
-git clone <https://github.com/A-Marbach/minecraft-server>
+git clone <https://github.com/A-Marbach/wordpress.git>
 cd wordpress
 ```
 2. Create a .env file (optional, for custom credentials):
 
 ```
 WORDPRESS_DB_NAME=mywordpress
-WORDPRESS_DB_USER=admin
-WORDPRESS_DB_PASSWORD=geheim123
-MYSQL_ROOT_PASSWORD=rootpass
+WORDPRESS_DB_USER=your_user
+WORDPRESS_DB_PASSWORD=your_secure_password
+MYSQL_ROOT_PASSWORD=your_root_password
 ```
 3. Start the containers:
 ```bash
@@ -66,22 +66,21 @@ You can modify .env or the environment section in docker-compose.yaml:
 
 ### Volumes
 
-wordpress_data: stores WordPress files (themes, plugins, uploads)
-
-db_data: stores MySQL database files
+- **wordpress_data**: stores WordPress files (themes, plugins, uploads)  
+- **db_data**: stores MySQL database files  
 
 Volumes ensure data persists even after container restarts or recreation.
 
 Restarting Containers
 
 ```bash
-dokcer-compose restart
+docker-compose restart
 ```
 
 Stopping Containers
 
 ```bash
-dokcer-compose down
+docker-compose down
 ```
 
 ### Extras
@@ -96,6 +95,21 @@ For debugging, view logs:
 docker-compose logs wordpress
 docker-compose logs db
 ```
+
+
+##  Project Checklist
+
+The full submission checklist can be found in [CHECKLIST.md](./CHECKLIST.md).
+
+It includes verification points such as:
+- Correct `.gitignore` setup  
+- Proper `docker-compose.yaml` structure (WordPress + MySQL)  
+- Persistent volumes for both services  
+- Shared Docker network  
+- Working restart policy (`unless-stopped`)  
+- Verified accessibility on port 8080  
+- Data persistence after container restart  
+- No sensitive data in the repository  
 
 ### Notes
 
