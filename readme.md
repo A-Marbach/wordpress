@@ -1,14 +1,14 @@
 # WordPress Docker Project
 
+This repository contains a Docker Compose setup for running WordPress with a MySQL database.  
+The project is designed to be easy to deploy, with persistent data storage and configurable environment variables.
+
 ## Table of Contents
-- [Description](#description)
 - [Quickstart](#quickstart)
 - [Usage](#usage)
 - [Extras](#extras)
-- [Project Checklist](#project-checklist)
-## Description
-This repository contains a Docker Compose setup for running WordPress with a MySQL database.  
-The project is designed to be easy to deploy, with persistent data storage and configurable environment variables.
+
+
 
 ### Key Features
 - WordPress latest version in Docker
@@ -17,30 +17,30 @@ The project is designed to be easy to deploy, with persistent data storage and c
 - Easy configuration via environment variables
 - Automatic container restart on failure
 
----
 
 ## Quickstart
 
 ### Prerequisites
 - Docker
 - Docker Compose
-- (Optional) VSCode or another code editor
 
 ### Steps
 1. Clone this repository:
 
 ```bash
-git clone <https://github.com/A-Marbach/wordpress.git>
+git clone git@github.com:A-Marbach/wordpress.git
 cd wordpress
 ```
-2. Create a .env file (optional, for custom credentials):
+2. Copy the example environment file:
 
+```bash
+cp .env.example .env
 ```
-WORDPRESS_DB_NAME=mywordpress
-WORDPRESS_DB_USER=your_user
-WORDPRESS_DB_PASSWORD=your_secure_password
-MYSQL_ROOT_PASSWORD=your_root_password
-```
+
+Open .env and change the values if you want custom credentials.
+
+Note: Do not commit .env to the repository; it contains sensitive information.
+
 3. Start the containers:
 ```bash
 docker-compose up -d
@@ -48,14 +48,19 @@ docker-compose up -d
 
 4. Open Wordpress in your browser:
 ```
-http://localhost:8080
+http://<your_ip>:8080
 ```
 
 ## Usage
 
+
+1. Open your browser and navigate to http://<your_ip>:8080 to complete the WordPress installation.
+
+* Create your WordPress admin user and password during the setup wizard.
+
 ### Environment Variables
 
-You can modify .env or the environment section in docker-compose.yaml:
+You have modify .env or the environment section in docker-compose.yaml for a secure deployment:
 
 | Variable | Description | Default |
 |----------|-------------|---------|
@@ -95,24 +100,3 @@ For debugging, view logs:
 docker-compose logs wordpress
 docker-compose logs db
 ```
-
-
-##  Project Checklist
-
-The full submission checklist can be found in [CHECKLIST.md](./CHECKLIST.md).
-
-It includes verification points such as:
-- Correct `.gitignore` setup  
-- Proper `docker-compose.yaml` structure (WordPress + MySQL)  
-- Persistent volumes for both services  
-- Shared Docker network  
-- Working restart policy (`unless-stopped`)  
-- Verified accessibility on port 8080  
-- Data persistence after container restart  
-- No sensitive data in the repository  
-
-### Notes
-
-Do not commit .env to the repository; it contains sensitive information.
-
-Ensure Docker and Docker Compose are installed on your machine or VM before starting.
