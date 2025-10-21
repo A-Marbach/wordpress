@@ -1,0 +1,28 @@
+# Docker build artifacts
+*.log
+*.tmp
+*.bak
+
+# WordPress uploads, cache etc. (falls lokal vorhanden)
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+
+# Local environment variables
+.env
+.env.local
+
+# Database files (Volumes handle persistence)
+db_data/
+wordpress_data/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Node/Python/etc. if used
+*.pyc
+__pycache__/
+node_modules/
